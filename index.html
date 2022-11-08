@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="./style.css">
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>API DOS GATOS</h1>
+		<h3>Esta é uma API que consome outra API e no final te mostra um gato aleatório.</p>
+		<p>CUIDADO: Alguns deles podem ser fofos, outros podem parecer o demônio.</p>
+        <script>
+            const gato = fetch('https://api.thecatapi.com/v1/images/search')
+				.then((res) => {
+					return res.json()
+				})
+				.then((data) => {
+					const cat = data[0].url
+
+					let img = document.querySelector('img')
+					img.src = cat
+
+					return cat
+				});
+        </script>
+
+		<img src="" alt="A imagem de um gato maldito!">
+	</body>
+</html>
